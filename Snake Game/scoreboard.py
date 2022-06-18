@@ -1,20 +1,14 @@
-from turtle import Turtle, Screen
-from food import Food
+from turtle import Turtle
 
-screen = Screen()
-screen.setup(width=600, height=600)
-screen.bgcolor("black")
+class Scoreboard(Turtle):
+    def __init__(self):
+        super().__init__()
+        self.hideturtle()
+        self.penup()
+        self.color("white")
+        self.speed(0)
+        self.goto(0, 270)
 
-food = Food()
-
-display = Turtle()
-display.hideturtle()
-display.penup()
-display.color("white")
-display.speed(0)
-display.goto(0, 270)
-
-display.write("Test", align="center", font=("Arial", 10))
-
-
-screen.exitonclick()
+    def update_score(self, score_input):
+        self.clear()
+        self.write(f"Score: {score_input}", align="center", font=("Arial", 10))
