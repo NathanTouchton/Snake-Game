@@ -10,7 +10,6 @@ RIGHT = 0
 
 class Snake:
     def __init__(self):
-        super().__init__()
         self.snake_squares = []
         self.create_snake()
         self.head = self.snake_squares[0]
