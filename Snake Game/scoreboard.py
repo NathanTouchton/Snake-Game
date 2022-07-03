@@ -8,11 +8,15 @@ class Scoreboard(Turtle):
         self.color("white")
         self.speed(0)
         self.goto(0, 270)
+        self.score = 0
+        self.high_score = 0
 
     def update_score(self, score_input):
         self.clear()
-        self.write(f"Score: {score_input}", align="center", font=("Arial", 10))
+        self.score = score_input
+        self.write(f"Score: {score_input} High Score: {self.high_score}", align="center", font=("Arial", 10))
 
-    def game_over(self):
-        self.goto(0, 0)
-        self.write("Game Over!", align="center", font=("Courier", 15))
+    def reset_score(self):
+        if self.score > self.high_score:
+            self.high_score = self.score
+        self.score = 0
