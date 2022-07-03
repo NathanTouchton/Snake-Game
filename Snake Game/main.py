@@ -37,10 +37,12 @@ while GAME_IS_ON:
     if snake.head.xcor() > 280 or snake.head.ycor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() < -280:
         scorboard.reset_score()
         snake.reset_snake()
+        SCORE = 0
 
     for segment in snake.snake_squares[1:]:
         if snake.head.distance(segment) < 10:
             scorboard.reset_score()
             snake.reset_snake()
+            SCORE = 0
 
 screen.exitonclick()
